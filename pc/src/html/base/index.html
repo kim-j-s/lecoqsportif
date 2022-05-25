@@ -1,0 +1,370 @@
+@@include("_head.html",{
+	"page_main" : true,
+	"mainCss" : true,
+	"mainScript" : false,
+	"title" : "타이틀"
+})
+<body>
+	<div class="wrap">
+		@@include("_header.html",{
+			"page_main" : true
+		})
+
+		<!-- main -->
+		<main>
+
+			<section class="main-kv">
+				<div class="sw autoplay">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="../../assets/images/temp/main-kv-1-1.png" alt="">
+							<div class="main-kv-inner">
+								<p class="text">
+									여름의 에너지를 담은<br> 액티브 캐주얼 스타일링
+								</p>
+								<span class="sub-text">일상과 운동을 넘나드는 AGA 컬렉션</span>
+								<div class="btn-area">
+									<a href="#" class="btn view"><span>VIEW MORE</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<img src="../../assets/images/temp/main-kv-1-2.png" alt="">
+							<div class="main-kv-inner">
+								<p class="text">`
+									자유로운 낭만과 유스<br> 드래곤 판타지아
+								</p>
+								<span class="sub-text">새로워진 드래곤 비트를 만나보세요</span>
+								<div class="btn-area">
+									<a href="#" class="btn view"><span>VIEW MORE</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<img src="../../assets/images/temp/main-kv-1-3.png" alt="">
+							<div class="main-kv-inner">
+								<p class="text">
+									요즘처럼 달리기<br> 좋은 날에는
+								</p>
+								<span class="sub-text">우먼 애슬레저 러닝부터 트레이닝까지</span>
+								<div class="btn-area">
+									<a href="#" class="btn view"><span>VIEW MORE</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="autoplay-dp">
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-pagination"></div>
+						<div class="swiper-button-next"></div>
+						<button type="button" class="swiper-autoplay-play"><span class="text">시작</span></button>
+						<button type="button" class="swiper-autoplay-stop"><span class="text">정지</span></button>
+					</div>
+				</div>
+			</section>
+
+			<!-- swiper Freemode -->
+			<section>
+
+			</section>
+
+			<!-- full video -->
+			<section>
+
+			</section>
+
+			<!-- new for summner -->
+			<section class="main-cont">
+				<h1 class="cont-title">
+					<a href="#">NEW FOR SUMMER</a>
+				</h1>
+
+				<div class="sw perview type1 items ani-left" data-offset="80">
+					<div class="swiper-wrapper">
+						@@for (var i = 0; i < 8; i++) {
+						<div class="swiper-slide">
+							<div class="item ty1">
+								<a href="#">
+									<div class="thumb">
+										<img src="../../assets/images/temp/temp-1-`+(i+1)+`.png" alt="">
+									</div>
+									<div class="item-detail">
+										<p class="cate">WOMEN</p>
+										<p class="prd-name">LE COURT 루즈핏 반팔 맨투맨</p>
+										<div class="price">59,000 원</div>
+										<div class="badge-wrap">
+											<span>NEW</span>
+											<span>리미티드</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						}
+					</div>
+				</div>
+
+				<div class="double open-event mt-130" data-offset="80">
+					<div class="d-item">
+						<div class="thumb">
+							<img src="../../assets/images/temp/img-d-1-1.png" alt="">
+						</div>
+						<div class="detail">
+							<p class="cate">PROMOTION</p>
+							<p class="text">도시를 누비는 MEADOW의 매력</p>
+							<div class="btn-area">
+								<a href="#" class="btn view"><span>VIEW MORE</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="d-item">
+						<div class="thumb">
+							<img src="../../assets/images/temp/img-d-1-2.png" alt="">
+						</div>
+						<div class="detail">
+							<p class="cate">NUMERO1</p>
+							<p class="text">프리미엄 사이클웨어의 정석</p>
+							<div class="btn-area">
+								<a href="#" class="btn view"><span>VIEW MORE</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- hot trending -->
+			<section class="main-cont">
+				<h1 class="cont-title">
+					<a href="#">HOT #TRENDING</a>
+				</h1>
+				<div class="tab ty1">
+					<span><a href="#" class="active">#ALL</a></span>
+					<span><a href="#">#MEN</a></span>
+					<span><a href="#">#WOMEN</a></span>
+					<span><a href="#">#SHOES</a></span>
+					<span><a href="#">#ACC</a></span>
+				</div>
+
+				<div class="sw perview type1 items ani-left mt-30" data-offset="80">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="item ty1">
+								<a href="#">
+									<div class="thumb">
+										<span class="rank active">1</span>
+										<img src="../../assets/images/temp/temp-2-1.png" alt="">
+									</div>
+									<div class="item-detail">
+										<p class="cate">WOMEN</p>
+										<p class="prd-name">LE COURT 루즈핏 반팔 맨투맨</p>
+										<div class="price">59,000 원</div>
+										<div class="badge-wrap">
+											<span>NEW</span>
+											<span>리미티드</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						@@for (var i = 0; i < 7; i++) {
+						<div class="swiper-slide">
+							<div class="item ty1">
+								<a href="#">
+									<div class="thumb">
+										<span class="rank">`+(i+2)+`</span>
+										<img src="../../assets/images/temp/temp-2-`+(i+2)+`.png" alt="">
+									</div>
+									<div class="item-detail">
+										<p class="cate">WOMEN</p>
+										<p class="prd-name">LE COURT 루즈핏 반팔 맨투맨</p>
+										<div class="price">59,000</div>
+										<div class="badge-wrap">
+											<span>NEW</span>
+											<span>리미티드</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- style finder -->
+			<section class="main-cont">
+				<h1 class="cont-title">
+					<a href="#">STYLE FINDER</a>
+				</h1>
+			</section>
+
+			<!-- shorts play -->
+			<section class="main-cont full shorts">
+				<div class="inner">
+					<div class="content-head">
+						<h1 class="cont-title">SHORTS PLAY</h1>
+						<div class="units">
+							<div class="tab ty2">
+								<a href="#" class="ty1">
+									<span class="text">스트릿 바이브</span>
+								</a>
+								<a href="#" class="ty2">
+									<span class="text">바람을 가르는</span>
+								</a>
+								<a href="#" class="ty3">
+									<span class="text">액티브한 하루</span>
+								</a>
+								<a href="#" class="ty4">
+									<span class="text">파리의 거리</span>
+								</a>
+								<a href="#" class="ty5">
+									<span class="text">레트로 무드</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--featured  -->
+			<section class="main-cont">
+				<h1 class="cont-title">FEATURED</h1>
+				<div class="double open-event mt-30" data-offset="80">
+					<div class="d-item">
+						<div class="thumb">
+							<img src="../../assets/images/temp/img-d-2-1.png" alt="">
+						</div>
+						<div class="detail">
+							<p class="cate">LE;CYCLE</p>
+							<p class="text">ONE FOR ZERO CAMPAIGN</p>
+							<div class="btn-area">
+								<a href="#" class="btn view"><span>VIEW MORE</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="d-item">
+						<div class="thumb">
+							<img src="../../assets/images/temp/img-d-2-2.png" alt="">
+						</div>
+						<div class="detail">
+							<p class="cate">NUMERO1</p>
+							<p class="text">미학적 사이클 퍼포먼스를 위해</p>
+							<div class="btn-area">
+								<a href="#" class="btn view"><span>VIEW MORE</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-wrap mt-30">
+					@@for (var i = 0; i < 6; i++) {
+					<div class="item ty2">
+						<a href="#">
+							<div class="thumb">
+								<img src="../../assets/images/temp/temp-3-`+(i+1)+`.png" alt="">
+							</div>
+							<div class="item-detail">
+								<p class="cate">WOMEN</p>
+								<p class="prd-name">LE COURT 루즈핏 반팔 맨투맨</p>
+								<div class="price">59,000 원</div>
+							</div>
+						</a>
+					</div>
+					}
+					
+				</div>
+			</section>
+
+			<!-- faster -->
+			<section class="main-cont">
+				<h1 class="cont-title">
+					<a href="#">#FASTER</a>
+				</h1>
+				<div class="tab ty1">
+					<span><a href="#" class="active">#액티브 블랙</a></span>
+					<span><a href="#">#R820</a></span>
+					<span><a href="#">#르사이클 챌린지</a></span>
+					<span><a href="#">#STYLE WITH @MJBYPP</a></span>
+					<span><a href="#">#커플 테니스 스타일링</a></span>
+				</div>
+
+				<div class="sw perview type3 items ani-left mt-30" data-offset="80">
+					<div class="swiper-wrapper">
+						@@for (var i = 0; i < 7; i++) {
+						<div class="swiper-slide">
+							<div class="item ty3">
+								<a href="#">
+									<div class="thumb">
+										<img src="../../assets/images/temp/temp-4-`+(i+1)+`.png" alt="">
+										<div class="b-info">
+											<p class="name">@K.A.INNSOO</p>
+											<div class="detail">
+												<span class="heart">1082</span>
+												<span class="reply">122</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						}
+					</div>
+				</div>
+
+			</section>
+
+			<!-- 신발 대도감 -->
+			<section class="main-cont">
+				<h1 class="cont-title">신발 대도감</h1>
+			</section>
+
+			<!-- 취향저격 스타일 -->
+			<section class="main-cont">
+				<h1 class="cont-title">취향저격 스타일</h1>
+
+				<div class="sw perview type1 items ani-left mt-30" data-offset="80">
+					<div class="swiper-wrapper">
+						@@for (var i = 0; i < 8; i++) {
+						<div class="swiper-slide">
+							<div class="item ty1">
+								<a href="#">
+									<div class="thumb">
+										<img src="../../assets/images/temp/temp-5-`+(i+1)+`.png" alt="">
+									</div>
+									<div class="item-detail">
+										<p class="cate">WOMEN</p>
+										<p class="prd-name">LE COURT 루즈핏 반팔 맨투맨</p>
+										<div class="price">59,000</div>
+										<div class="badge-wrap">
+											<span>NEW</span>
+											<span>리미티드</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- trend now -->
+			<section class="main-cont">
+				<h1 class="cont-title">TREND NOW</h1>
+				<div class="tab ty1">
+					<span><a href="#" class="active">#AGA</a></span>
+					<span><a href="#">#CYCLE STORY</a></span>
+					<span><a href="#">#NUMERO1</a></span>
+					<span><a href="#">#그래픽 반팔 티셔츠</a></span>
+					<span><a href="#">#SLIDE</a></span>
+				</div>
+			</section>
+
+
+		</main>
+		<!-- main -->
+
+		@@include("_footer.html")
+	</div>
+</body>
+</html>
