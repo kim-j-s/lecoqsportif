@@ -163,3 +163,158 @@
 
 
 /* main */
+
+
+/* 신발 대도감 */
+.shoe-b {
+  display: flex;
+  &-right {
+    margin-left: 30px;
+    .top {
+      height: 188px;
+      margin-bottom: 30px;
+      padding: 34px 40px 0 40px;
+      border-radius: 8px;
+      background-color: #f6f6f6;
+      > dl {
+        font-weight: 700;
+        dt {
+          font-size: 16px;
+          line-height: 20px;
+          color: #9a9a9a;
+        }
+        dd {
+          padding-top: 8px;
+          font-size: 22px;
+          line-height: 30px;
+          color: #131313;
+        }
+      }
+      .tab {
+        margin-top: 20px;
+      }
+    }
+    .bottom {
+      font-size: 0;
+      > a {
+        display: inline-block;
+        vertical-align: top;
+        + a {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}
+/* 신발 대도감 */
+
+
+/* trend now */
+.tn {
+  display: flex;
+  margin: 0 -15px;
+  margin-top: 30px;
+  > .cont {
+    flex: 1 1 0%;
+    margin: 0 15px;
+
+    .top-item {
+      .thumb {
+        position: relative;
+        font-size: 0;
+      }
+    }
+
+    .sub-item {
+      margin-top: 30px;
+
+      .s-item {
+        + .s-item {
+          margin-top: 30px;
+          padding-top: 30px;
+          border-top: 1px solid #e1e1e1;
+        }
+
+        > a {
+          display: flex;
+          align-items: center;
+        }
+
+        .thumb {
+          flex: none;
+          width: 133px;
+          font-size: 0;
+        }
+        .cont {
+          margin-left: 30px;
+          .cate {
+            font-size: 15px;
+            line-height: 20px;
+            color: #9a9a9a;
+          }
+          .name {
+            margin-top: 6px;
+            font-size: 15px;
+            line-height: 20px;
+            color: #131313;
+          }
+          .price {
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 24px;
+            color: #131313;            
+          }
+        }
+      }
+    }
+  }
+}
+/* trend now */
+
+
+
+.bt-cont {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  font-weight: 700;
+  color: #fff;
+  .cate {
+    padding-bottom: 4px;
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .text {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .btn-area {
+    margin-top: 20px;
+  }
+  &.small {
+    .text {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+}
+
+.thumb {
+  position: relative;
+  &.hover {
+    border-radius: 8px;
+    overflow: hidden;
+    > img {
+      display: block;
+      transform: scale(1);
+      transition: 0.3s;
+    }
+    &:hover {
+      > img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
