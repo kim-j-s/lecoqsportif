@@ -188,11 +188,12 @@ var ui = {
 $(function() {
   ui.init();
 
+	var swiper = [];
 	$('.sw').each(function(i){
 		var $this = $(this);
 		$this.addClass('s' + i);
 		if ( $this.hasClass('progress') ) {
-			var swiper = new Swiper($this, {
+			swiper[i] = new Swiper(this, {
 				//slidesPerView: 1,
 				spaceBetween: 20,
 				loop: true,
@@ -207,14 +208,28 @@ $(function() {
 				},
 			});
 		} else if ( $this.hasClass('perview') ) {
-			var swiper = new Swiper($this, {
+			swiper[i] = new Swiper(this, {
 				slidesPerView: "auto",
 				spaceBetween: 30,
 				loop: false,
 				speed: 500,
 			});
+		} else if ( $this.hasClass('free') ) {
+			swiper[i] = new Swiper(this, {
+				slidesPerView: "auto",
+				freeMode: true,
+				spaceBetween: 30,
+				loop: false,
+				speed: 500,
+			});
+			swiper[i].on('setTranslate', function onSliderMove() {
+				var $translate = Math.abs(this.translate);
+				var $val = ($translate / 5) / 100;
+				var $calc = 1 - $val.toFixed(2);
+				$('.word').css('opacity', $calc);
+			});
 		} else if ( $this.hasClass('pager') ) {
-			var swiper = new Swiper($this, {
+			swiper[i] = new Swiper(this, {
 				slidesPerView: 2,
 				spaceBetween: 0,
 				loop: true,
@@ -229,8 +244,7 @@ $(function() {
 				},
 			});
 		} else if ( $this.hasClass('autoplay') ) {
-			console.log($this);
-			var swiper = new Swiper($this, {
+			swiper[i] = new Swiper(this, {
 				autoplay: true,
 				spaceBetween: 0,
 				loop: true,
@@ -245,26 +259,55 @@ $(function() {
 				},
 			});
 			$this.find(".swiper-autoplay-play").click(function(){
-				$this.removeClass('active');
+				$(this).removeClass('active');
 				swiper[i].autoplay.start();
 			});
 			$this.find(".swiper-autoplay-stop").click(function(){
-				$this.prev().addClass('active');
+				$(this).prev().addClass('active');
 				swiper[i].autoplay.stop();
 			});
 		} else {
-			var swiper = new Swiper($this, {
+			swiper[i] = new Swiper(this, {
 				spaceBetween: 100,
 				loop: true,
 				speed: 500,
-				pagination: {
-					el: '.swiper-pagination',
-					clickable: true,
-				},
 			});
 		}
 	});
 
+
+	$('.video-play').on('click', function(){
+		$(this).closest('.main-cont').find('video').get(0).play();
+		$('.video-play').removeClass('active');
+	});
+
+	$('.video-stop').on('click', function(){
+		$(this).closest('.main-cont').find('video').get(0).pause();
+		$('.video-play').addClass('active');
+	});
+
+
+	$(window).on('scroll', function() {
+		var top = $(document).scrollTop();
+		var $offevent = $('[data-offset]');
+		$offevent.each(function(){
+			var $this = $(this);
+			var offset = $this.offset().top;
+			var offPosition = $this.data('offset');
+			//console.log(offPosition);
+			if ( top > offset - offPosition) {
+				$this.addClass('active');
+			} 
+			/*
+			else {
+				$this.removeClass('active');
+			}
+			*/
+		});
+	});
+
+
+	
 
 
 	

@@ -55,6 +55,10 @@
   margin-top: 50px !important;
 }
 
+.mt-56 {
+  margin-top: 56px !important;
+}
+
 .mt-130 {
   margin-top: 130px !important;
 }
@@ -221,7 +225,12 @@
 .sw {
   position: relative;
   &.perview {
-    
+    .w-type1 {
+      width: 490px;
+    }
+    .w-type2 {
+      width: 1010px;
+    }
   }
   &.type1 {
     .swiper-slide {
@@ -340,6 +349,19 @@
           border-bottom: 12px solid #fff;
         }        
       }
+    }
+  }
+  &.blur-effect {
+    &:hover {
+      .item {
+        &:not(:hover) {
+          filter: brightness(0.5) saturate(0.6) contrast(1.2) blur(5px);
+        }
+      }
+    }
+    .item {
+      filter: brightness(1) saturate(1.2) contrast(1);
+      transition: filter 200ms linear, transform 200ms linear;
     }
   }
   .swiper-slide {

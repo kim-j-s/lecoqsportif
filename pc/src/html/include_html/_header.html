@@ -1,16 +1,28 @@
 <!-- header -->
-<header>
-  @@if (context.page_main === true){
-  <div class="top-banner">
-    top-banner
-  </div>
-  }
-  <div class="inner">
-    <h1 class="logo"><a href="#">밀레</a></h1>
-    @@include("_gnb.html")
-    <div class="utils">
-
+<div class="header">
+  <header>
+    @@if (context.page_main === true){
+    <div class="top-banner">
+      top-banner
     </div>
-  </div>
-</header>
+    }
+    <div class="inner">
+      <h1 class="logo"><a href="#">Le coq sportif</a></h1>
+      <ul class="category">
+        <li><a href="#">NEW</a></li>
+        <li><a href="#">BEST</a></li>
+        <li><a href="#">EARLY BIRD</a></li>
+        <li><a href="#">LAUNCHING ISSUE</a></li>
+        <li><a href="#">LE;CYCLE</a></li>
+      </ul>
+      @@include("_gnb.html")
+      <div class="utils">
+        <a href="#" class="search"></a>
+        <a href="#" class="login"></a>
+        <a href="#" class="zzim"></a>
+        <a href="#" class="bag"></a>
+      </div>
+    </div>
+  </header>
+</div>
 <!-- header -->

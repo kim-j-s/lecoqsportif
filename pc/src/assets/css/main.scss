@@ -1,5 +1,6 @@
 /* main */
 .main-cont {
+  position: relative;
   width: 1530px;
   margin: 0 auto;
   margin-top: 126px;  
@@ -134,7 +135,7 @@
       background-color: #ddd;
       transform-origin: left top;
       transform: rotate(-45deg);
-      transition: 0.8s;
+      transition: 1s;
     }
     &::after {
       content: '';
@@ -148,7 +149,7 @@
       background-color: #333;
       transform-origin: right top;
       transform: rotate(45deg);
-      transition: 0.8s;
+      transition: 1s;
     }
     &:hover {
       &::before {
@@ -159,10 +160,195 @@
       }
     }
   }
+  &.active {
+    > div {
+      &::before {
+        transform: rotate(-225deg);
+      }
+      &::after {
+        transform: rotate(-225deg);
+      }
+    }
+  }
+}
+/* main */
+
+/* free */
+.whats-cont {
+  font-size: 0;
+
+  &-left {
+    display: inline-block;
+    vertical-align: middle;
+    width: 624px;
+
+    .word {
+      position: relative;
+      left: 0;
+      transition: 0.7s;
+
+      .top {
+        font-size: 0;        
+        span {
+          display: inline-block;
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 46px;
+          color: #131313;
+          opacity: 0;
+          transform: translateY(-50%);
+          transition: all 0.3s;
+        }
+      }
+
+      &.active {
+        .top {
+          span {
+            @for $i from 1 to 50{
+              /* .icon_#{$i}{ */
+              &:nth-child(#{$i}) {
+                opacity: 1;
+                transition-delay: $i * 0.05s;
+                transform: translateY(0);
+              }
+            }
+          }
+        }
+      }
+
+
+      .sub {
+        padding-top: 13px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: #9a9a9a;
+      }
+    }
+
+  }
+
+  &-right {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 624px);
+  }
+
+}
+/* free */
+
+/* video */
+.main-video {
+  display: block;
+  width: 100%;
+}
+.video-inner {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1530px;
+  height: 100%;
+  color: #fff;
+  transform: translateX(-50%);
+  .text {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 53px;
+  }
+  .sub-text {
+    margin-top: 13px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .btn-area {
+    margin-top: 30px;
+  }
+
+
+
+  .video-play {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    z-index: 1;
+    display: none;
+    width: 60px;
+    height: 60px;
+    background-image: url(../images/icon-play.png);
+    &.active {
+      display: block;
+      + .video-stop {
+        display: none;
+      }
+    }
+  }
+  .video-stop {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    background-image: url(../images/icon-stop.png);
+  }
+}
+/* video */
+
+/* style finder */
+.sf-cont {
+  position: relative;
+  font-size: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  .thumb {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  > .sf-cont-right {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 490px);
+    padding: 0 0 0 30px;
+    > dl {
+      font-weight: 700;
+      dt {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      dd {
+        padding-top: 8px;
+        font-size: 22px;
+        line-height: 30px;
+      }
+    }
+    .s-items {
+      margin-top: 40px;
+      li {
+        + li {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
 }
 
-
-/* main */
+/* style finder */
 
 
 /* 신발 대도감 */
@@ -235,43 +421,44 @@
           border-top: 1px solid #e1e1e1;
         }
 
-        > a {
-          display: flex;
-          align-items: center;
-        }
-
-        .thumb {
-          flex: none;
-          width: 133px;
-          font-size: 0;
-        }
-        .cont {
-          margin-left: 30px;
-          .cate {
-            font-size: 15px;
-            line-height: 20px;
-            color: #9a9a9a;
-          }
-          .name {
-            margin-top: 6px;
-            font-size: 15px;
-            line-height: 20px;
-            color: #131313;
-          }
-          .price {
-            margin-top: 10px;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 24px;
-            color: #131313;            
-          }
-        }
+        
       }
     }
   }
 }
 /* trend now */
 
+
+.s-item-cont {
+  display: flex;
+  align-items: center;
+  .thumb {
+    flex: none;
+    width: 133px;
+    font-size: 0;
+  }
+  .cont {
+    margin-left: 30px;
+    .cate {
+      font-size: 15px;
+      line-height: 20px;
+      color: #9a9a9a;
+    }
+    .name {
+      margin-top: 6px;
+      font-size: 15px;
+      line-height: 20px;
+      color: #131313;
+    }
+    .price {
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      color: #131313;            
+    }
+  }
+}
 
 
 .bt-cont {
@@ -314,6 +501,22 @@
       > img {
         transform: scale(1.1);
       }
+    }
+  }
+  &.bdrs-none {
+    border-radius: 0;
+  }
+  &.center {
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 48px;
+      color: #fff;
+      text-align: center;
+      transform: translate(-50%, -50%);
     }
   }
 }
