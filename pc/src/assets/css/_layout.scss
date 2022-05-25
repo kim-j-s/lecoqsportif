@@ -4,7 +4,7 @@ header {
   position: relative;
   z-index: 50;
   background-color: #fff;
-  background-color: #ddd;
+  /* background-color: #ddd; */
   &.fix {
     position: fixed;
     top: 0;
@@ -80,12 +80,34 @@ header {
 
 /* nav */
 .gnb {
+  margin-top: 17px;
+  &:hover {
+    &::after {
+      content: '';
+      position: absolute;
+      left: -50%;
+      bottom: 0;
+      width: 200%;
+      border-bottom: 1px solid #e1e1e1;
+      pointer-events: none;
+    }
+  }
   > ul {
     display: inline-block;
     margin: 0 auto;
     > li {
       display: inline-block;
+      + li {
+        margin-left: 24px;
+      }
       &:hover {
+        > a {
+          background-color: red;
+          &::after {
+            left: 0;
+            width: 100%;
+          }
+        }
         > .dept {
           opacity: 1;
           visibility: visible;
@@ -93,30 +115,36 @@ header {
         }
       }
       > a {
+        position: relative;
         display: block;
-        padding: 0 20px;
-        font-size: 14px;
-        color: #333;
-        line-height: 40px;
-        &.active {
-          color: #fff;
-          background-color: #333;
+        padding-bottom: 17px;
+        font-weight: 700;
+        font-size: 24px;
+        color: #131313;
+        line-height: 32px;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          border-bottom: 3px solid #131313;
+          transition: 0.3s;
         }
-        /*
         &:hover {
-          background-color: red;
+          
           + .dept {
             opacity: 1;
             visibility: visible;
             transform: scaleY(1);
           }
         }
-        */
       }
       > .dept {
         position: absolute;
         top: 39px;
-        top: calc(100% + 40px);
+        top: calc(100% - 1px);
+        top: 100%;
         left: 0;
         right: 0;
         opacity: 0;
@@ -126,6 +154,24 @@ header {
         transform-origin: top center;
         transition: transform 1s;
         background-color: #fff;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -100%;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+        }
       }
     }
   }
