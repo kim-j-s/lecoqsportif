@@ -292,22 +292,27 @@ $(function() {
 		$('.video-play').addClass('active');
 	});
 
+	$('.video-item').mouseenter(function(){
+		$(this).addClass('active');
+		$(this).find('video').get(0).play();
+	})
+	.mouseleave(function(){
+		$(this).removeClass('active');
+		$(this).find('video').get(0).currentTime = 0;
+		$(this).find('video').get(0).pause();
+	});
+
 
 	$(window).on('scroll', function() {
 		var top = $(document).scrollTop();
 		var $offevent = $('[data-offset]');
 
-
 		// header
-
 		if ( top > 0 ) {
 			$('.header').addClass('active');
 		} else {
 			$('.header').removeClass('active');
 		}
-
-
-
 
 		$offevent.each(function(){
 			var $this = $(this);
@@ -321,8 +326,6 @@ $(function() {
 				$this.removeClass('active');
 			}
 		});
-
-
 
 	});
 

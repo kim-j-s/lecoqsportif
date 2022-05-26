@@ -87,8 +87,21 @@
     }
     .btn-area {
       margin-top: 30px;
+    }
+
+    .cont {
+      position: relative;
+      left: 100px;
+      opacity: 0;
+      transition: 1s;
+      transition-delay: 0.5s;
 
     }
+  }
+
+  .swiper-slide-active .cont {
+    left: 0;
+    opacity: 1;
   }
 
 }
@@ -151,16 +164,6 @@
       transform: rotate(45deg);
       transition: 1.5s;
     }
-    /*
-    &:hover {
-      &::before {
-        transform: rotate(-225deg);
-      }
-      &::after {
-        transform: rotate(-225deg);
-      }
-    }
-    */
   }
   &.active {
     > div {
@@ -518,6 +521,21 @@
       color: #fff;
       text-align: center;
       transform: translate(-50%, -50%);
+    }
+  }
+  &.video-item {
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      /* width: 100%; */
+      height: 100%;
+    }
+    &.active {
+      video {
+        display: block;
+      }
     }
   }
 }
