@@ -149,8 +149,9 @@
       background-color: #333;
       transform-origin: right top;
       transform: rotate(45deg);
-      transition: 1s;
+      transition: 1.5s;
     }
+    /*
     &:hover {
       &::before {
         transform: rotate(-225deg);
@@ -159,6 +160,7 @@
         transform: rotate(-225deg);
       }
     }
+    */
   }
   &.active {
     > div {

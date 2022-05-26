@@ -1,10 +1,20 @@
 /* header */
+.header {
+  height: 122px;
+  &.active {
+    height: 70px;
+    overflow: hidden;
+  }
+}
+
+
 header {
-  padding: 14px 0 18px 0;
   position: relative;
+  position: fixed;
+  width: 100%;
   z-index: 50;
+  font-size: 0;
   background-color: #fff;
-  /* background-color: #ddd; */
   &.fix {
     position: fixed;
     top: 0;
@@ -41,12 +51,20 @@ header {
           margin-left: 24px;
         }
       }
+      .active & {
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
   }
 
   .header-top {
     display: flex;
     align-items: flex-end;
+    padding-top: 14px;
+    .active & {
+      padding-top: 12px;
+    }
   }
 
   .logo {
@@ -59,19 +77,42 @@ header {
       overflow: hidden;
       background: url(../images/logo.png) no-repeat;
     }
+    .active & {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      a {
+        width: 26px;
+        height: 38px;
+        background: url(../images/logo_small.png) no-repeat;
+      }
+    }
   }
 
   .category {
-    display: inline-flex;
-    margin-left: 18px;
+    display: inline-block;
+    margin-left: 27px;
+    font-size: 0;
     > li {
+      display: inline-block;
       + li {
         margin-left: 18px;
       }
       > a {
         font-weight: 700;
         font-size: 15px;
+        line-height: 18px;
         color: #9a9a9a;
+      }
+    }
+    .active & {
+      margin-left: 42px;
+      > li {
+        > a {
+          font-size: 13px;
+          line-height: 18px;
+        }
       }
     }
   }
@@ -80,16 +121,22 @@ header {
 
 /* nav */
 .gnb {
+  display: inline-block;
   margin-top: 17px;
+  &::after {
+    content: '';
+    position: absolute;
+    left: -50%;
+    bottom: 0;
+    width: 200%;
+    opacity: 0;
+    border-bottom: 1px solid #e1e1e1;
+    pointer-events: none;
+    transition: 0.3s;
+  }
   &:hover {
     &::after {
-      content: '';
-      position: absolute;
-      left: -50%;
-      bottom: 0;
-      width: 200%;
-      border-bottom: 1px solid #e1e1e1;
-      pointer-events: none;
+      opacity: 1;
     }
   }
   > ul {
@@ -100,9 +147,10 @@ header {
       + li {
         margin-left: 24px;
       }
-      &:hover {
+      &:hover,
+      &.active {
         > a {
-          background-color: red;
+          /* background-color: red; */
           &::after {
             left: 0;
             width: 100%;
@@ -112,12 +160,13 @@ header {
           opacity: 1;
           visibility: visible;
           transform: scaleY(1);
+          box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.26);
         }
       }
       > a {
         position: relative;
         display: block;
-        padding-bottom: 17px;
+        padding-bottom: 18px;
         font-weight: 700;
         font-size: 24px;
         color: #131313;
@@ -125,14 +174,13 @@ header {
         &::after {
           content: '';
           position: absolute;
-          bottom: 0;
+          bottom: 1px;
           left: 50%;
           width: 0;
           border-bottom: 3px solid #131313;
           transition: 0.3s;
         }
         &:hover {
-          
           + .dept {
             opacity: 1;
             visibility: visible;
@@ -143,16 +191,17 @@ header {
       > .dept {
         position: absolute;
         top: 39px;
-        top: calc(100% - 1px);
+        /* top: calc(100% - 1px); */
         top: 100%;
         left: 0;
         right: 0;
+        z-index: 1;
         opacity: 0;
         visibility: hidden;
         white-space: nowrap;
         transform: scaleY(0);
         transform-origin: top center;
-        transition: transform 1s;
+        transition: transform 0.5s;
         background-color: #fff;
         &::before {
           content: '';
@@ -162,6 +211,7 @@ header {
           width: 100%;
           height: 100%;
           background-color: #fff;
+          box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.26);
         }
         &::after {
           content: '';
@@ -171,6 +221,83 @@ header {
           width: 100%;
           height: 100%;
           background-color: #fff;
+          box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.26);
+        }
+        > .inner {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          justify-content: space-between;
+          padding: 40px 0;
+          background-color: #fff;
+          > ul {
+            flex: 1 1 0%;
+            > li {
+              > a {
+                position: relative;
+                display: inline-block;
+                font-size: 15px;
+                color: #131313;
+                &.view-all {
+                  position: relative;
+                  padding-right: 12px;
+                  font-weight: 700;
+                  font-size: 16px;
+                  line-height: 20px;
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: 8px;
+                    height: 8px;
+                    border-top: 2px solid #131313;
+                    border-right: 2px solid #131313;
+                    transform: translateY(-50%) rotate(45deg);
+                  }
+                }
+                &:not(.view-all ) {
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -1px;
+                    width: 0;
+                    border-bottom: 1px solid #131313;
+                    transition: 0.3s;
+                  }
+                  &:hover {
+                    &::after {
+                      width: 100%;
+                    }
+                  }
+                }
+              }
+              + li {
+                margin-top: 18px;
+              }
+              &:nth-child(2) {
+                margin-top: 22px;                
+              }
+            }
+          }
+          > .bnr {
+            flex: none;
+          }
+        }
+      }
+    }
+  }
+
+  .active & {
+    margin-top: 3px;
+    padding-left: 42px;
+    > ul {
+      > li {
+        > a {
+          padding-bottom: 13px;
+          font-size: 18px;
+          line-height: 24px;
         }
       }
     }
@@ -329,9 +456,9 @@ footer {
 
 /* content */
 main {
-  /*
-  width: 1530px;
-  margin: 0 auto;
-  */
+}
+
+.wrap {
+  overflow: hidden;
 }
 /* content */

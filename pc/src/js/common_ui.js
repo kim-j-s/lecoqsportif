@@ -224,9 +224,15 @@ $(function() {
 			});
 			swiper[i].on('setTranslate', function onSliderMove() {
 				var $translate = Math.abs(this.translate);
+				//console.log(this.translate, $translate);
 				var $val = ($translate / 5) / 100;
+				//console.log( $val.toFixed(2) );
 				var $calc = 1 - $val.toFixed(2);
+
+				// console.log( $calc );
+
 				$('.word').css('opacity', $calc);
+				//$('.word').css('left', -$calc * 100);
 			});
 		} else if ( $this.hasClass('pager') ) {
 			swiper[i] = new Swiper(this, {
@@ -290,6 +296,19 @@ $(function() {
 	$(window).on('scroll', function() {
 		var top = $(document).scrollTop();
 		var $offevent = $('[data-offset]');
+
+
+		// header
+
+		if ( top > 0 ) {
+			$('.header').addClass('active');
+		} else {
+			$('.header').removeClass('active');
+		}
+
+
+
+
 		$offevent.each(function(){
 			var $this = $(this);
 			var offset = $this.offset().top;
@@ -298,12 +317,13 @@ $(function() {
 			if ( top > offset - offPosition) {
 				$this.addClass('active');
 			} 
-			/*
 			else {
 				$this.removeClass('active');
 			}
-			*/
 		});
+
+
+
 	});
 
 
