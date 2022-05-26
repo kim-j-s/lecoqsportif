@@ -368,6 +368,35 @@
     
   }
 }
+
+
+.ani-left {
+  .item {
+    position: relative;
+    opacity: 0;
+    transform: translateX(200px);
+    transition: 0.6s;
+  }
+
+  &.active {
+    .swiper-wrapper {
+      .swiper-slide {
+        @for $i from 1 to 50 {
+          /* .icon_#{$i}{ */
+          &:nth-child(#{$i}) {
+            .item {
+              opacity: 1;
+              transition-delay: $i * 0.08s;
+              transform: translateX(0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 /* swiper */
 
 
