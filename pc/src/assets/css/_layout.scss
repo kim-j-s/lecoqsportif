@@ -36,16 +36,16 @@ header {
         text-indent: -9999px;
         overflow: hidden;
         &.search {
-          background-image: url(/assets/images/icon-search.png);
+          background-image: url(../images/icon-search.png);
         }
         &.login {
-          background-image: url(/assets/images/icon-login.png);
+          background-image: url(../images/icon-login.png);
         }
         &.zzim {
-          background-image: url(/assets/images/icon-zzim.png);
+          background-image: url(../images/icon-zzim.png);
         }
         &.bag {
-          background-image: url(/assets/images/icon-bag.png);
+          background-image: url(../images/icon-bag.png);
         }
         + a {
           margin-left: 24px;
