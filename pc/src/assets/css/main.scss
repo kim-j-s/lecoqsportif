@@ -207,10 +207,9 @@
         .top {
           span {
             @for $i from 1 to 50{
-              /* .icon_#{$i}{ */
               &:nth-child(#{$i}) {
                 opacity: 1;
-                transition-delay: $i * 0.05s;
+                transition-delay: $i * 0.03s;
                 transform: translateY(0);
               }
             }
