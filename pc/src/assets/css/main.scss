@@ -114,6 +114,19 @@
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    .i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      width: 100px;
+      transform: translate(-50%, -50%);
+      transition: 0.5s;
+      img {
+        width: 100%;
+      }
+      
+    }
     + div {
       margin-left: 30px;
     }
@@ -145,7 +158,8 @@
       width: 120%;
       height: 120%;
       border-radius: 20px;
-      background-color: #ddd;
+      opacity: 0.4;
+      background-color: #fff;
       transform-origin: left top;
       transform: rotate(-45deg);
       transition: 1s;
@@ -159,15 +173,19 @@
       width: 120%;
       height: 120%;
       border-radius: 20px;
-      background-color: #333;
+      opacity: 0.4;
+      background-color: #eee;
       transform-origin: right top;
       transform: rotate(45deg);
-      transition: 1.5s;
+      transition: 1s;
     }
   }
   &.active,
   &:hover {
     > div {
+      .i {
+        opacity: 0;
+      }
       &::before {
         transform: rotate(-225deg);
       }
