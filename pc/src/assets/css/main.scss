@@ -165,7 +165,8 @@
       transition: 1.5s;
     }
   }
-  &.active {
+  &.active,
+  &:hover {
     > div {
       &::before {
         transform: rotate(-225deg);
